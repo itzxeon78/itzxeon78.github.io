@@ -1,0 +1,31 @@
+{
+	"RETURN":{
+		"success": true
+      },
+    
+    "WIFI": {
+		"status":"1",
+		"ssidName":"HIWI",
+		"ssidVisibility":"1",
+		"channelMode":"MANUAL",
+		"channel":"3",
+		"SECURITY":{
+			"cipherAlgorithm":"WPA",
+			"algVersion":"WPA1",
+			"passwordWEP":"ABCDEFGHIJ",
+			"passwordWPA":"FDSAFEFASD",
+			"passwordWPA2":"WDUAFNFISP"
+		}
+ 	 },
+ 	 
+  	"DHCP": {
+  		"status":"1",
+  		"poolStart":"192.168.1.33",
+  		"poolEnd":"192.168.1.255"
+  	},
+  	
+  	"LAN": {
+  		"ip":"192.168.1.25",
+  		"mask":"255.255.255.0"
+  	}
+}

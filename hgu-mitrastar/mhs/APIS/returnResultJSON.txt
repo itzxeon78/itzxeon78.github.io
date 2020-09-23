@@ -1,0 +1,6 @@
+{	"RETURN":{
+		"success": ##SUCCESS##,
+        "errorDescription": "##ERROR##"
+	}
+
+}

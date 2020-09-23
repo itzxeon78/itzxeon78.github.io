@@ -1,0 +1,28 @@
+{
+	"RETURN":{
+		"success": true
+   	},
+   	
+   	"APPLICATION": 	{
+      "idApplication": "7",
+	  "nameApplication": "World of Warcraft",
+	  "ipAssigned":"192.168.1.37",
+	  "idIcon": "Laptop_1",
+      "RULES":[
+       		{"idRule":"rule1",
+       		 "protocol":"TCP",
+       		 "startWan":"3742",
+       		 "endWan":"3742",
+       		 "startLan":"3742",
+       		 "endLan":"3742"
+      		},
+      		{"idRule":"rule2",
+      		 "protocol":"TCP",
+       		 "startWan":"6112",
+       		 "endWan":"6112",
+       		 "startLan":"6112",
+       		 "endLan":"6112"
+      		}
+       		]
+    }
+}

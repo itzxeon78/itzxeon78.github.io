@@ -1,0 +1,19 @@
+{
+	"RETURN":{
+		"success": true
+      },
+      
+      "INTERNET": 	{
+      	"physicalStatus": "down",
+      	"rateDown": "6,3Mb",
+      	"rateUp": "309Kb",
+      	"maxRateDown": 0,
+      	"maxRateUp": 0,
+     	"wanType": "DSL",
+     	"PPP": {
+        	"type": "PPPoE",
+        	"username": "adslppp@telefonicanetpa",
+         	"password": "adslppp"
+      	}
+   	}
+}

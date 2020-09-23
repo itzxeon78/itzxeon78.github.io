@@ -1,0 +1,11 @@
+@font-face {
+   font-family: 'movistar_textregular';
+    src: url('movistartext-regular-webfont.eot');
+    src: url('movistartext-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('movistartext-regular-webfont.woff') format('woff'),
+         url('movistartext-regular-webfont.ttf') format('truetype'),
+         url('movistartext-regular-webfont.svg#movistar_textregular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+	
+}

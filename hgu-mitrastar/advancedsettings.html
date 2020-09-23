@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0">
+<title>movistar</title>
+<link href="mhs/css/style.css" rel="stylesheet" type="text/css">
+<script src="mhs/js/jquery-1.6.3.min.js"></script>
+<script src="mhs/js/jquery-page.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<div class="wrapper2">
+    <div class="topBorder">
+            <div class="top_LLBox"><div id="home"><img src="mhs/img/meun.png" width="45" height="45"></div><div id="menu" class="toptitle2">MENÚ</div>
+            	<div id="pagemenu" class="menuList">
+                	 <ul>
+                        <li><a href="mhs.html">WiFi</a></li>
+                        <li><a href="wifi5g.html">WiFi Plus</a></li>
+                        <li><a href="wifisecond.html">WiFi Invitados</a></li>
+                        <li><a href="PortForwardWizard.html?page=1">Puertos</a></li>
+                        <li class="sec"><a href="#">Red local&nbsp;></a>
+                        	<ul>
+                            	<li><a href="networkmap.html">Mapa de red local</a></li>
+                                <li><a href="lan_v4.html">Red Local</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="multipuesto.html">Multipuesto / Monopuesto</a></li>
+                        <li><a href="lan_v6.html">IPv6</a></li>
+                        <li><a href="changepasswd.html">Cambio contraseña del router</a></li>
+                        <li><a href="firmwareupgrad.html">Actualizaciones Firmware</a></li>
+                        <li><a href="configsetting.html">Otras funcionalidades</a></li>
+                        <li class="sec"><a href="#">Ayuda&nbsp;></a>
+                        	<ul>
+                            	<li><a href="wizard_help.html">Ayuda configurador web</a></li>
+                                <li><a href="sysinfo.html">Acerca de</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="advancedsettings.html">Configuración avanzada</a></li>
+                    </ul></div>
+                </div>
+            <div class="top_CBox toptitle">Acceso al Configurador Router</div>
+            <div class="top_RRBox logoBox_in"><img src="mhs/img/logo.png"></div>
+    </div>
+    	<div class="topBorder2">
+            <div class="toptitle2">Acceso al Configurador Router</div>
+    	</div>
+    <div class="mainBorder"><div class="items"><a href="javascript:void(0)" onclick="logoutBtu();">Cerrar sesión</a></div></div>
+    <div class="locationTitle">Configuración avanzada</div>
+<div class="mainBorder">
+	<div id="logout" class="finBox">
+    	<div class="artBox">¿Está seguro de que desea cerrar la sesión?<br>
+            </div>
+            <div class="artBox">
+              <div class="leftBtu"><input type="button" name="button" id="button" value="Cancelar" class="checkBtu" onclick="closeDiv();"></div>
+              <div class="rightBtu"><input type="button" name="button" id="button" value="Aceptar" class="checkBtu" onclick="javascript:location.href='logout.cmd'"></div>
+            </div>
+    </div>
+   		<div class="artBox black2">Estas accediendo a las opciones de configuración avanzada del equipo. Si no dispones de conocimientos avanzados te recomendamos no modificar estos parámetros.</div>
+        <div class="artBox">
+          <div class="leftBtu"><input type="reset" name="button" id="button" value="Cancelar" class="checkBtu" onClick="javascript:location.href='mhs.html'"></div>
+          <div class="rightBtu"><input type="button" name="button" id="button" value="Aceptar" class="checkBtu" onClick="javascript:location.href='main.html'"></div> 
+        </div>
+</div>
+    <div class="footerBorder">
+    © Telefónica de España S.A.U. Todos los derechos reservados v 1.1
+    </div>
+</div></div>
+</body>
+</html>
