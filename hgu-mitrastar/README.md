@@ -3,14 +3,25 @@ Esta es una muestra no interactiva del portal de configuración del router Mitra
 
 Está basado en lo máximo posible en el firmware 100VNJ0b38_2, y puede que a lo largo de la implementación falten archivos, o sean erróneos.
 
-## Progreso
+## Archivos añadidos actualmente
 
 ### Interfaz básica
 <ul>
-  <li>- [ ] Importar configuración básica (interfaz inalámbrica)</li>
+  <li>- [x] Varios archivos comunes</li>
+  <br>
+  <li>- [x] advancedsettings.html</li>
+  <li>- [x] mhs.html</li>
+</ul>
+
+## Progreso restante
+
+### Interfaz básica
+<ul>
+  <li>- [ ] Importar configuración básica (WiFi Plus)</li>
+  <li>- [ ] Importar configuración básica (WiFi Invitados)</li>
   <li>- [ ] Importar configuración básica (Puertos)</li>
   <li>- [ ] Importar configuración básica (Red local)</li>
-  <li>- [ ] Importar configuración básica (Archivos restantes)</li>
+  <li>- [ ] Importar configuración básica (Varios)</li>
 </ul>
 
 ### Interfaz avanzada
