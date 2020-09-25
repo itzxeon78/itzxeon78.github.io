@@ -1,0 +1,720 @@
+@charset "utf-8";
+@import url("../font/MovistarHeadline_Bold/stylesheet.css");
+@import url("../font/MovistarText_Regular/stylesheet.css");
+/*
+---PC/all none set style---
+*/
+#pageloading {
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	z-index: 1000;
+	background-color: #FFF;
+}
+#loadingimg {
+	height: 116px;
+	width: 102px;
+	margin-left: -58px;
+	position: absolute;
+	left: 50%;
+	top: 30%;
+}
+
+/*h1{ font-family:movistar_headlinebold;}*/
+html{
+    font-family: "movistar_textregular";
+    font-style:normal;font-weight:400;
+}
+body {
+	font-family: "movistar_textregular";
+	word-break: normal;
+	height: 100%;
+	font-size: 100%;
+	font-weight: 400;
+	background-image: url(../img/bg.jpg);
+	background-repeat: repeat-x;
+    font-style:normal;
+	/*margin:0px;
+	padding:0px;
+	background:#fff;
+	font-family: movistar_textregular;*/
+}
+img,img a{
+	border:0px;
+}
+*{
+	margin:0px;
+	padding:0px;
+}
+ul,li{
+	list-style:none;
+}
+.wrapper,.wrapper2{
+	width: 100%;
+}
+.layout{
+	height:100%;
+	width:100%;
+	position:absolute;
+	z-index:10000;
+	background:#fff;
+}
+#logout{ display:none;}
+#home{
+	/*background:url(../img/home.png) no-repeat center center;*/
+	float: left;
+	width:45px;
+	height:45px;
+	background:#0f5b82;
+	margin-top:11px;
+	border:1px solid #2176b1;
+	overflow:hidden;
+	border-radius:4px;
+	-ms-border-radius:4px;
+	-o-border-radius:4px;
+	-wekit-border-radius:4px;
+	-moz-border-radius:4px;
+}
+#home:hover{
+	background:#216493;
+	cursor:pointer;
+}
+#menu{
+	float:left;
+	width:90px;
+	line-height:45px;
+	height:45px;
+	text-align:left;
+	color:#fff;
+	font-family:"movistar_headlinebold";
+    font-style:normal;font-weight:400;
+	font-size:18px;
+	margin-top:11px;
+	margin-left:8px;
+}
+.menuList{
+	width:240px;
+	height:auto;
+	z-index:999;
+	position:absolute;
+	margin-top:55px;
+	border:1px solid #2176b1;/*stop*/
+	
+}
+.menuList ul{
+	width:240px;
+	background:#0f5b82;
+}
+.menuList li{
+	padding:12px 6px 12px 8px;
+	border-bottom:1px solid #2176b1;
+}
+.menuList li:last-child{
+	border-bottom:none;
+}
+.menuList li:hover{
+	background:#134660;
+}
+.menuList li a{
+	display:block;
+	font-size:1em;
+	font-weight:bold;
+	color:#fff;
+	text-decoration:none;
+}
+.menuList li.sec{
+	background:#094c6e;
+}
+.menuList li.sec ul{
+	display:none;
+	margin-left:233px;
+	margin-top:-32px;
+	position:absolute;
+}
+#pagemenu{ display:none;}
+
+.topBorder{
+	width:100%;
+	float:left;
+	background:#006699;
+	height:70px;
+}
+.topBorder2{display:none;}
+.top_info{
+	width:100%;
+	float:left;
+	background:#f2f2f2;
+	height:auto;
+}
+.top_info ul{
+	width:90%;
+	margin-left:8%;
+	margin-right:8%;
+	margin-bottom:12px;
+	margin-top:12px;
+}
+.top_info li{
+	float:left;
+	width:20%;
+	margin:1% 1%;
+}
+.top_info_S{ display:none;}
+.items{
+	float:right;
+	margin-right:2%;
+	margin-top:12px;
+}
+.items a{
+	font-size:1.3em;
+	text-decoration:none;
+	font-weight:bolder;
+	color:#000;
+}
+.items a:hover{ color:#3f3f3f;}
+.top_LBox{ width:8%; margin:auto 2%; float:left;}
+.top_RBox{ width:72%; margin:auto 2%; float:left;}
+.top_LLBox{ width:18%; margin:auto 2%; float:left;}
+.top_CBox{ width:50%; margin:auto 2%; float:left;}
+.top_RRBox{ width:20%; margin:auto 2%; float:right; text-align:right;}
+span.sub{
+	font-size:1em;
+	color:#000;
+	font-weight:bolder;
+}
+.logoBox_in{
+	margin-top:10px;
+	margin-left:2%;
+}
+.toptitle{
+	text-align:center;
+	line-height:70px;
+	color:#fff;
+	font-family:"movistar_headlinebold";
+    font-style:normal;font-weight:600;
+	font-size:24px;
+}
+.mainBorder{
+	width:100%;
+	height:auto;
+	float:left;
+	background-color: #FFF;
+}
+.footerBorder{
+	width:100%;
+	float:left;
+	background:#006699;
+	height:60px;
+	line-height:60px;
+	font-size:1em;
+	color:#bababa;
+	text-align:center;
+}
+.artBox{
+	width:92%;
+	padding:2% 0%;
+	height:auto;
+	float:left;
+	margin-left:4%;
+}
+.gray{
+	font-size:16px;
+    font-family: "movistar_textregular";
+	color:#9c9c9c;
+}
+.black{
+	font-size:1em;
+	color:#000;
+}
+.black2{
+	font-size:16px;
+	color:#000;
+}
+input.txtBox{
+	height:46px;
+	/*float:left;*/
+	width:45%;
+	padding-left:1%;
+	border:2px solid #e5e5e5;
+	border-radius:4px;
+	-moz-border-radius:4px;
+	-wekit-border-radius:4px;
+	-ms-border-radius:4px;
+	-o-border-radius:4px;
+}
+input[type=text]:focus,textarea:focus{
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid rgba(81, 203, 238, 1);
+}
+input.sendBtu{
+	/*float:left;
+	margin-top:-2px;*/
+	height:50px;
+	width:16%;
+	border:0px;
+	background:#868686;
+	font-size:16px;
+	color:#fff;
+	cursor:pointer;
+	margin-left:1%;
+    font-family: "movistar_textregular";
+}
+.sendBtu:hover{
+	background:#a5a5a5;
+}
+input.sendBtu2{
+	/*float:left;
+	margin-top:-2px;*/
+	height:50px;
+	width:50%;
+	border:0px;
+	background:#868686;
+	font-size:16px;
+	color:#fff;
+	cursor:pointer;
+	margin-left:1%;
+    font-family: "movistar_textregular";
+}
+.sampleImg{
+	background:url(../img/u13.png) no-repeat center center;
+	width:909px;
+	height:177px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:35px;
+}
+.locationTitle{
+	width:98%;
+	float:left;
+	padding-left:2%;
+	border-bottom:1px solid #000;
+	padding-bottom:6px;
+	font-size: 18px;
+	padding-top:12px;
+	font-family: "movistar_headlinebold";
+	background-color: #FFF;
+}
+.u15{
+	width:70%;
+	float:left;
+	background:url(../img/u15.png) no-repeat left center;
+	padding-left:115px;
+	text-align:left;
+	min-height:80px;
+	height:auto;
+	paddind-right:20px;
+	padding-top:20px;
+}
+.tabBorder{
+	width:90%;
+	float:left;
+	height:auto;
+	margin:2%;
+}
+.tabID{
+	font-size:16px;
+    font-family: "movistar_headlinebold";
+    font-style:normal;font-weight:600;
+	width:30%;
+	float:left;
+	height:auto;
+	line-height:22px;
+}
+.tabInput{
+	width:65%;
+	height:auto;
+	float:left;
+	line-height:25px;
+	height:auto;
+}
+
+.chooseBox{
+	width:100%;
+	height:35px;
+	border:1px solid #777777;
+    font-family:"movistar_textregular";
+}
+.checkBtu{
+	width:200px;
+	height:35px;
+	border:1px solid #97999b;
+	background:#a7a9ad;
+	font-size:1.2em;
+	line-height:35px;
+	cursor:pointer;
+	font-weight:bold;
+	text-align:center;
+	font-family:"movistar_headlinebold";
+	color:#fff;
+}
+.checkBtu2{
+	width:150px;
+	height:35px;
+	border:1px solid #a8a8a8;
+	background:#808080;
+	font-size:1.2em;
+	line-height:35px;
+	cursor:pointer;
+	font-weight:bold;
+	text-align:center;
+	color:#fff;
+    font-family:"movistar_headlinebold";
+}
+.checkBtu:hover{
+	background:#888b8f;
+}
+
+.leftBtu{
+	float:left;
+	width:200px;
+	height:auto;
+	text-align:center;
+	margin:2% auto;
+    font-family:"movistar_headlinebold";
+}
+.rightBtu{
+	float:right;
+	width:200px;
+	height:auto;
+	text-align:center;
+	margin:2% auto;
+    font-family:"movistar_headlinebold";
+}
+.leftBtu2{
+	float:left;
+	width:150px;
+	height:auto;
+	text-align:center;
+	margin:2% auto;
+}
+.rightBtu2{
+	float:right;
+	width:150px;
+	height:auto;
+	text-align:center;
+	margin:2% auto;
+}
+#fin{ display:none;}
+.fin_item{
+	position:absolute;
+	z-index:999;
+}
+.fin_item ul{
+    font-family: "movistar_textregular";
+	background:#e5e5e5;
+	border:1px solid #d3d3d3;
+	width:auto;
+	height:auto;
+	border-radius:3px;
+	-o-border-radius:3px;
+	-moz-border-radius:3px;
+	-wekit-border-radius:3px;
+	-ms-border-radius:3px;
+	padding:4px 2px;
+}
+.fin_item li{
+    font-family: "movistar_textregular";
+	text-align:left;
+	padding:2px 4px;
+	background:#fff;
+	border:1px solid #d3d3d3;
+	border-radius:3px;
+	-o-border-radius:3px;
+	-moz-border-radius:3px;
+	-wekit-border-radius:3px;
+	-ms-border-radius:3px;
+	margin:2px 4px;
+}
+.fin_item li a{
+    font-family: "movistar_textregular";
+	color:#999;
+	text-decoration:none;
+}
+.fin_item li a:hover{
+	color:#333;
+}
+.finBox{
+	background:rgb(220, 220, 220);
+	position:absolute;
+	width:60%;
+	margin-left:15%;
+	margin-right:15%;
+	margin-top:6%;
+	z-index:999;
+	padding:35px;
+}
+.finBox2{
+    font-family: "movistar_textregular";
+	display:none;
+	background:rgb(220, 220, 220);
+	position:absolute;
+	width:60%;
+	margin-left:15%;
+	margin-right:15%;
+	margin-top:8%;
+	z-index:9999;
+	padding:5%;
+}
+#tab1,#tab2,#tab4{
+	display:none;
+}
+/*
+---S style mobile---
+*/
+
+@media screen and (max-width: 480px) {
+.topBorder2{
+	display:block;
+	width:100%;
+	float:left;
+	background:#006699;
+	height:35px;
+	text-align:center;
+	color:#fff;
+	line-height:35px;
+	font-size:1.1em;
+	font-family:movistar_headlinebold;
+}
+.topBorder{height:40px;}
+.topBorder .top_CBox{display:none;}
+.logoBox_in{height:33px;width:150px;overflow:hidden;}
+.logoBox_in img{height:33px;width:150px;}
+.toptitle{line-height:1.4em;font-size:1.3em;}
+.footerBorder{height:40px;line-height:1.2em;vertical-align:middle;}
+.sampleImg{background:url(../img/u13s.png) no-repeat center center;width:281px;height:224px;}
+input.txtBox{width:65%;}
+input.sendBtu{width:20%;}
+.artBox{padding:5% 0%;}	
+#home{width:35px;height:35px;margin-top:6px;}
+#home img{ width:35px; height:35px;}
+.u15{
+	width:95%;
+	float:left;
+	background:url(../img/u15.png) no-repeat top center;
+	padding-left:5px;
+	margin-right:5%;
+	text-align:left;
+	min-height:80px;
+	height:auto;
+	paddind-right:5px;
+	padding-top:125px;
+}
+.top_LBox{ width:98%; margin:6px 1% auto 1%; float:left; text-align:center;}
+.top_RBox{ width:98%; margin:auto 1%; float:left;}
+.top_LLBox{ width:7%; margin:auto 2%; float:left;}
+.top_CBox{ width:85%; margin:40px 2% auto 5px; float:left;clear:right;}
+.top_RRBox{ width:85%; margin:-38px 2% auto 12%; float:left; clear:right; text-align:center;}
+.top_info{ display:none;}
+.top_info_S{ display:block;}
+
+.top_info_S .itemsB{
+	float:left;
+	width:50%;
+	margin-left:-2px;
+	border:1px solid #c5c5c5;
+	background:#b6b6b6;
+	height:38px;
+	line-height:38px;
+	text-align:center;
+}
+.itemsB a{
+	display:block;
+	font-weight:bolder;
+	text-decoration:none;
+	font-size:1.3em;
+	color:#000;
+}
+.itemsB a.white{
+	color:#fff;
+}
+.top_info_S ul{
+	display:none;
+	position:absolute;
+	z-index:997;
+	float:left;
+	width:49%;
+	border:1px solid #c5c5c5;
+	height:auto;
+	background:#b6b6b6;
+	padding-bottom:5px;
+	padding-left:1%;
+	padding-top:5px;
+	text-align:left;
+	margin-left:-2px;
+}
+.top_info_S li{
+	margin-top:10px;
+	margin-bottom:10px;
+	line-height:1em;
+	font-size:0.6em;
+}
+.tabID{
+	width:100%;
+	clear:right;
+}
+.tabInput{
+	width:100%;
+	float:left;
+}
+.chooseBox{
+	width:100%;
+}
+.leftBtu,.leftBtu2{
+	float:left;
+	width:100%;
+	text-align:center;
+	
+}
+.rightBtu,.rightBtu2{
+	float:left;
+	width:100%;
+	text-align:center;
+}
+.finBox{
+	margin-left:8%;
+	margin-right:5%;
+}
+#menu{ display:none;}
+.menuList{
+	width:100%;
+	margin-top:75px;
+	margin-left:-2%;
+	height:auto;
+	z-index:999;
+	position:absolute;
+	border:1px solid #2176b1;/*stop*/
+	
+}
+.menuList ul{
+	width:100%;
+	background:#0f5b82;
+}
+.menuList li{
+	padding:12px 6px 12px 8px;
+	border-bottom:1px solid #2176b1;
+}
+.menuList li:last-child{
+	border-bottom:none;
+}
+.menuList li:hover{
+	background:#134660;
+}
+.menuList li a{
+	display:block;
+	font-size:18px;
+    font-family:"movistar_textregular";
+    font-style:normal;
+	color:#fff;
+	text-decoration:none;
+}
+.menuList li.sec{
+	background:#094c6e;
+}
+.menuList li.sec ul{
+	display:none;
+	float:left;
+	margin-left:-8px;
+	margin-top:12px;
+	position:static;
+	margin-bottom:12px;
+}
+.menuList li.sec ul li{
+	background:#9199aa;
+	padding-left:22px;
+	border-bottom:1px solid #a5a8af;
+	float:left;
+	width:100%;
+}
+.menuList li.sec ul li:hover{
+	background:#868d9b;
+}
+}
+/*
+---M style---
+*/
+@media screen and (min-width: 481px) and (max-width: 767px) {
+.logoBox_in{height:37px;width:170px;overflow:hidden; }
+.logoBox_in img{height:37px; width:170px;}
+.top_LBox{ width:98%; margin:6px 1% auto 1%; text-align:center; float:left;}
+.top_RBox{ width:98%; margin:auto 1%; float:left;}
+.top_LLBox{ width:5%; margin:auto 2%; float:left;}
+.top_CBox{ width:80%; margin:40px 2% auto 2%; float:left;}
+.top_RRBox{ width:80%; margin:-70px 2% auto 10%; float:left;text-align:center;}
+.topBorder{height:85px;}
+.toptitle{line-height:1.8em;font-size:1.4em;}
+.footerBorder{height:45px;line-height:45px;}
+.sampleImg{background:url(../img/u13ms.png) no-repeat center center;width:462px;height:111px;}
+.artBox{padding:4% 0%;}
+#home{width:40px;height:40px;margin-top:20px;}
+#home img{width:40px; height:40px;}	
+.top_info ul{width:96%;margin-left:2%;margin-right:2%;}
+.top_info li{width:22%;margin:1% 1%;}
+.tabID{
+	width:100%;
+	clear:right;
+}
+.tabInput{
+	width:100%;
+	float:left;
+}
+.chooseBox{
+	width:100%;
+}
+.finBox{
+	width:75%;
+	margin-left:5%;
+	margin-right:5%;
+}
+#menu{ display:none;}
+.menuList{margin-top:60px;}
+}
+/*
+---L style ipad---
+*/
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+.top_LBox{ width:10%; margin:auto 2%; float:left;}
+.top_RBox{ width:70%; margin:auto 2%; float:left;}
+.top_LLBox{ width:5%; margin:auto 2%; float:left;}
+.top_CBox{ width:60%; margin:auto 2%; float:left;}
+.top_RRBox{ width:19%; margin:auto 2%; float:right;text-align:right;}
+.logoBox_in{height:37px;width:170px;margin-top:18px;}
+.logoBox_in img{height:37px;width:170px;}
+.sampleImg{background:url(../img/u13m.png) no-repeat center center;width:555px;height:133px;}
+.top_info ul{width:96%;margin-left:2%;margin-right:2%;}
+.top_info li{width:22%;margin:1% 1%;}
+.tabID{
+	width:40%;
+	clear:right;
+}
+.tabInput{
+	width:60%;
+	float:left;
+}
+.chooseBox{
+	width:100%;
+}
+#menu{ display:none;}	
+}
+
+/*
+---1280 plus---
+*/
+@media screen and (min-width: 1281px){
+.wrapper{
+width: 85%;
+margin-right: auto;
+margin-left: auto;
+}
+.wrapper2{
+	background-color: #FFF;
+	-moz-box-shadow: 0px 0px 5px #0066997;
+	-webkit-box-shadow: 0px 0px 5px #006699;
+	box-shadow: 0px 0px 5px #006699;
+	clear: both;
+	float: left;
+}
+.layout{
+	background-image: url(../img/bg.jpg);
+	background-repeat: repeat-x;}
+}
