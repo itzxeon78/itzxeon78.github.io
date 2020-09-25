@@ -3,6 +3,8 @@ Esta es una muestra no interactiva del portal de configuración del router Mitra
 
 Está basado en lo máximo posible en el firmware 100VNJ0b38_2, y puede que a lo largo de la implementación falten archivos, o sean erróneos.
 
+<b>NOTA:</b> este contenido podría estar sujeto bajo derechos de autor, cuyo caso, bajo previa notificación de al menos 72 horas, se procederá a su eliminación.
+
 ## Archivos añadidos actualmente
 
 ### Interfaz básica
