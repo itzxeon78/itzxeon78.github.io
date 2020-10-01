@@ -1,8 +1,6 @@
 //jquery-page.js
-
 // JavaScript Document
 $(window).load(function(){
-	
 	$('#hoverItems').hover(function(){
 		$('.top_info_S ul').slideDown();
 		},function(){
@@ -34,25 +32,21 @@ $(window).load(function(){
 		$('#tab4').fadeIn();
 		})
 	})
-	
 function warn_open(){
 	$('.finBox2').show();
 }
 function warn_close(){
 	$('.finBox2').hide();
 }	
-	
 function logoutBtu(){
 	$('#logout').fadeIn();
 	}	
-	
 function closeDiv(){
 	$('Div.finBox').fadeOut();
 	}
 function callTab(){
 	$('Div.finBox').fadeIn();
 	}
-	
 function Router(){
 	$('#re').show();
 	$('#re2,#re3').hide();
@@ -145,7 +139,6 @@ function loadDefaultLanguage(url){
 	else if (LANG == "pt") {	setPortuguese();}
 	else if (LANG == "ch") {	setChinese();}
 }
-
 function _(str, args) { 
    // return $.i18n('dashboard', str, args); 
     return $.i18n("dashboard", str, args);
@@ -184,8 +177,6 @@ function reloadTextsDiv(id_element){
 		jQuery(this).html(value);		
 	});	
 }
-
-
 //jquery.json-2.2.js
 /*
  * jQuery JSON Plugin
@@ -202,14 +193,11 @@ function reloadTextsDiv(id_element){
  * It is also influenced heavily by MochiKit's serializeJSON, which is 
  * copyrighted 2005 by Bob Ippolito.
  */
- 
 (function($) {
     /** jQuery.toJSON( json-serializble )
         Converts the given argument into a JSON respresentation.
-
         If an object has a "toJSON" function, that will be used to get the representation.
         Non-integer/string keys are skipped in the object, as are keys that point to a function.
-
         json-serializble:
             The *thing* to be converted.
      **/
@@ -217,87 +205,64 @@ function reloadTextsDiv(id_element){
     {
         if (typeof(JSON) == 'object' && JSON.stringify)
             return JSON.stringify(o);
-        
         var type = typeof(o);
-    
         if (o === null)
             return "null";
-    
         if (type == "undefined")
             return undefined;
-        
         if (type == "number" || type == "boolean")
             return o + "";
-    
         if (type == "string")
             return $.quoteString(o);
-    
         if (type == 'object')
         {
             if (typeof o.toJSON == "function") 
                 return $.toJSON( o.toJSON() );
-            
             if (o.constructor === Date)
             {
                 var month = o.getUTCMonth() + 1;
                 if (month < 10) month = '0' + month;
-
                 var day = o.getUTCDate();
                 if (day < 10) day = '0' + day;
-
                 var year = o.getUTCFullYear();
-                
                 var hours = o.getUTCHours();
                 if (hours < 10) hours = '0' + hours;
-                
                 var minutes = o.getUTCMinutes();
                 if (minutes < 10) minutes = '0' + minutes;
-                
                 var seconds = o.getUTCSeconds();
                 if (seconds < 10) seconds = '0' + seconds;
-                
                 var milli = o.getUTCMilliseconds();
                 if (milli < 100) milli = '0' + milli;
                 if (milli < 10) milli = '0' + milli;
-
                 return '"' + year + '-' + month + '-' + day + 'T' +
                              hours + ':' + minutes + ':' + seconds + 
                              '.' + milli + 'Z"'; 
             }
-
             if (o.constructor === Array) 
             {
                 var ret = [];
                 for (var i = 0; i < o.length; i++)
                     ret.push( $.toJSON(o[i]) || "null" );
-
                 return "[" + ret.join(",") + "]";
             }
-        
             var pairs = [];
             for (var k in o) {
                 var name;
                 var type = typeof k;
-
                 if (type == "number")
                     name = '"' + k + '"';
                 else if (type == "string")
                     name = $.quoteString(k);
                 else
                     continue;  //skip non-string or number keys
-            
                 if (typeof o[k] == "function") 
                     continue;  //skip pairs where the value is a function.
-            
                 var val = $.toJSON(o[k]);
-            
                 pairs.push(name + ":" + val);
             }
-
             return "{" + pairs.join(", ") + "}";
         }
     };
-
     /** jQuery.evalJSON(src)
         Evaluates a given piece of json source.
      **/
@@ -307,7 +272,6 @@ function reloadTextsDiv(id_element){
             return JSON.parse(src);
         return eval("(" + src + ")");
     };
-    
     /** jQuery.secureEvalJSON(src)
         Evals JSON in a way that is *more* secure.
     **/
@@ -315,26 +279,21 @@ function reloadTextsDiv(id_element){
     {
         if (typeof(JSON) == 'object' && JSON.parse)
             return JSON.parse(src);
-        
         var filtered = src;
         filtered = filtered.replace(/\\["\\\/bfnrtu]/g, '@');
         filtered = filtered.replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']');
         filtered = filtered.replace(/(?:^|:|,)(?:\s*\[)+/g, '');
-        
         if (/^[\],:{}\s]*$/.test(filtered))
             return eval("(" + src + ")");
         else
             throw new SyntaxError("Error parsing JSON, source is not valid.");
     };
-
     /** jQuery.quoteString(string)
         Returns a string-repr of a string, escaping quotes intelligently.  
         Mostly a support function for toJSON.
-    
         Examples:
             >>> jQuery.quoteString("apple")
             "apple"
-        
             >>> jQuery.quoteString('"Where are we going?", she asked.')
             "\"Where are we going?\", she asked."
      **/
@@ -352,9 +311,7 @@ function reloadTextsDiv(id_element){
         }
         return '"' + string + '"';
     };
-    
     var _escapeable = /["\\\x00-\x1f\x7f-\x9f]/g;
-    
     var _meta = {
         '\b': '\\b',
         '\t': '\\t',
@@ -365,14 +322,11 @@ function reloadTextsDiv(id_element){
         '\\': '\\\\'
     };
 })(jQuery);
-
-
 //index.js
 var filesadded="";
 var CONFIG = null;
 var STATUS = null;
 var USER_NAME =	"Admin";
-
 /*---------------------------------------*/
 /*	 AUTHENTICATION AND PASSWORD CHANGE	 */
 /*---------------------------------------*/
@@ -387,10 +341,8 @@ function getLoginStatus(callback){
 		}
 	);	
 }
-
 function configurationLoaded(){
 	var imprementation = CONFIG.Implementation;
-	
 	if (CONFIG.Branding == "o2") 
 		replacecssfile("defaultBranding.css", "/mhs/css/o2.css");
 	else if (CONFIG.Branding == "telefonica") 
@@ -425,23 +377,19 @@ function loadFooter(){
 		$('#txtFooter').html("&copy; 2010 Telef&oacute;nica O2 UK Limited");
 	else if(CONFIG.Country=='BR')
 		$('#txtFooter').html("&copy; 2010 Telefonica S.A.");
-	
 	if (CONFIG.Branding =='o2'){
 		$('.imgFooter').css('display','block');
 		$('.txtFooter').css('float','right');
 		$('#panel_footer a').css('color','#515559');
 	}
-	
 }
 //	Dynamically load and add .js, css or php files
 function loadjscssfile(filename, filetype,callback){
 	var fileref= createjscssfile(filename, filetype);
-
  	if (typeof fileref != "undefined") {
 		fileref.appendTo("head");
 	}
 }
-
 function createjscssfile(filename, filetype){
 	var fileref= null;
  	if (filetype=="js"){ //if filename is a external JavaScript file
@@ -458,14 +406,11 @@ function createjscssfile(filename, filetype){
 	}
 	return fileref;
 }
-
 function replacecssfile(oldfilename, newfilename){
  	var targetelement=	"link";  	//element type to create nodelist using
  	var targetattr	=	"href";		//corresponding attribute to test for
  	var allsuspects	=	document.getElementsByTagName(targetelement);
- 	
 	for (var i=allsuspects.length; i>=0; i--){ //search backwards within nodelist for matching elements to remove
-		
   		if (allsuspects[i] && allsuspects[i].getAttribute(targetattr)!=null && allsuspects[i].getAttribute(targetattr).indexOf(oldfilename)!=-1){
    			var newelement=createjscssfile(newfilename, "css");
    			allsuspects[i].parentNode.replaceChild(newelement[0], allsuspects[i]);
@@ -483,7 +428,6 @@ function logIn(){
 	enableAdvancedSettings();
 	if (!timer_is_on)	setTimeout("startSessionChecker();",1000);
 }
-
 function logOutAdmin(){	
 	updateLoginStatus(false,"");
 	disableAdvancedSettings();
@@ -500,7 +444,6 @@ function configureLinksHeader(){
 	$('#faq').click(function() {		
 		loadHelpDialog(_("HELP_TITLE"), function() { linkContent("1","0"); });		
 	});
-		
 	var htmlLanguagesList="";
 	var long_name="";	
 	var lang_name="";
@@ -535,7 +478,6 @@ function configureLinksHeader(){
 		}
 	}
 }
-
 function disableAdvancedSettings(){	
 	$('.enabled').each(function(){		
 		if ($(this).children().hasClass('disabled_opacity')) {			
@@ -548,7 +490,6 @@ function disableAdvancedSettings(){
 		$(this).addClass('disabled');
 	});	
 }
-
 function enableAdvancedSettings(){	
 	$('.disabled').each(function(){		
 		if ($(this).children().hasClass('disabled_opacity')) {			
@@ -561,11 +502,9 @@ function enableAdvancedSettings(){
 		$(this).addClass('enabled');
 	});		
 } 
-
 function loadAuthentication(callback){
 	authentication(USER_NAME, $('#pass').val(),callback)
 }
-
 function loadDialogLogin(page, title, width, reload){
 	preloadDialog(title, width);
 	$('#dialog').load(page, function(){				
@@ -577,7 +516,6 @@ function loadDialogLogin(page, title, width, reload){
 		/*$(".dialog_faq").click(function(){				
 			loadHelpDialog(_("HELP_TITLE"));		
 		});*/	
-		
 		isPasswordDefault(paintLoginPage);
 		setTimeout('$("#pass").focus();',1500);
 		effectHover('cancel', 'cancel_icon');
@@ -665,13 +603,11 @@ function loadForgetDiv(){
 				"<div class='passTop'>" + 
 					"<div class='right'><div class='gateway_reset_ico' /></div>" +
 					"<div class='trad' key='LOGIN_FORGET_2' />" + 
-					
 				"</div>" +
 			"</div>" +
 			"");
 	reloadTextsDiv('forget');
 }
-
 //AFTER LANGUAGE CHANGE
 function changeLink(){
 	var i=0;
@@ -693,11 +629,9 @@ function changeLink(){
 			};
 		}
 	}
-	
 	//update "network map" image
 	$(".network_map").css("background", "url(./images/brd_"+CONFIG.Branding+"/net_map_"+LANG+".png) no-repeat");	
 }
-
 function checkNavigator(){
 	if(/MSIE 6.0/i.test(navigator.userAgent)) {
 		showWarning(_("INDEX_NAVIGATOR"));
@@ -710,7 +644,6 @@ function checkNavigator(){
 var remainSession=-1;
 var sessionTimer;
 var timer_is_on=false;
-
 function startSessionChecker(){
 	if (!timer_is_on)	{
 		timer_is_on=true;
@@ -719,7 +652,6 @@ function startSessionChecker(){
 		//$("#remaining_session_box").show();
 	}
 }
-
 function stopSessionChecker(){
 	if (timer_is_on)	{
 		timer_is_on=false;
@@ -728,7 +660,6 @@ function stopSessionChecker(){
 		//setTimeout("$('#remaining_session_box').hide();",5000);
 	}
 }
-
 function timedInterval(){
 	if (!timer_is_on) return;	
 	updateTimerPage();
@@ -738,36 +669,30 @@ function timedInterval(){
 	} 
 	else expiredSession();
 }
-
 function updateTimerPage(){
 	//if (remainSession>0)	$("#remaining_session").html(""+remainSession+ " sg");
 	//else 			$("#remaining_session").html("OFF");
 }
-
 function renoveSession(){
 	remainSession = CONFIG.SessionMaxTime;	
 }
-
 function expiredSession(){
 	stopSessionChecker();
 	timer_is_on = false;
 	logOutAdmin();
 	if (CONFIG.SessionWarning) showWarning(_("COMMON_SESSION_WARNING"));
 }
-
 /*******************************************************************
  *  	FUNCTIONS TO CONTROL DEVICE BAG ACTUALIZATION
  *******************************************************************/
 var timer_updater_is_on=false;
 var updaterTimer;
-
 function startBagUpdaterThread(){
 	if (!timer_updater_is_on)	{
 		timer_updater_is_on=true;
 		updaterTimer = setTimeout("timedUpdate();",1000*CONFIG.UpdateStep);
 	}
 }
-
 function stopUpdater(){
 	if (timer_updater_is_on)	{
 		timer_updater_is_on=false;
@@ -775,7 +700,6 @@ function stopUpdater(){
 		//setTimeout("$('#remaining_session_box').hide();",5000);
 	}
 }
-
 function timedUpdate(){
 	if (!timer_updater_is_on) return;	
 	//updateTimerPage();
@@ -784,14 +708,11 @@ function timedUpdate(){
 	updateNetworkMap();
 	updaterTimer=setTimeout("timedUpdate()",1000*CONFIG.UpdateStep);
 }
-
 function updateNetworkMap(){
 	listDevices(updateDevicesBag);
 	getInternetInfo(showInternetStatus);
 	//getWifiInfo(updateWifiInNetworkmap);
 }
-
-
 //networkMap/applications.js
 var current_rules=0;
 var applicationsInfoList=new Array();
@@ -830,13 +751,11 @@ function showPageApplicationsList(page){
 		if (applicationsInfoList.length >12){
 			applicationsLength = 12;
 		}
-		
 	}else if (page == 2){
 		var i=12;
 		if (applicationsInfoList.length > 24){
 			applicationsLength = 24;
 		}
-		
 	}else if (page == 3){
 		var i=24;
 		if (applicationsInfoList.length > 36){
@@ -867,7 +786,6 @@ function loadDefaultAppListStyle(page){
 		loadSelectedAppStyle(idApplicationSelected);
 	}
 }
-
 function loadCreateRuleForm(){
 	//alert("loadCreateRuleForm entry!");
 	var id = current_rules++;
@@ -891,41 +809,33 @@ function loadCreateRuleForm(){
 	newRule.find("input[id=ruleStartWanN]").attr("id", "ruleStartWan"+ id);
 	newRule.find("div[id=untilN]").attr("id", "until"+ id);
 	newRule.find("input[id=ruleEndWanN]").attr("id", "ruleEndWan"+ id);
-
 	//newRule.find("input[id=checkPortsM]").attr("id", "checkPortsL"+ id);
 	newRule.find("span[id=fromN1]").attr("id", "from"+ id);
 	newRule.find("input[id=ruleStartLanN]").attr("id", "ruleStartLan"+ id);
 	newRule.find("div[id=untilN1]").attr("id", "until"+ id);
 	newRule.find("input[id=ruleEndLanN]").attr("id", "ruleEndLan"+ id);
-	
 	newRule.find("select[id=select_trafficN]").attr("id", "select_traffic"+ id);
 	newRule.find("div.minus_icon").bind("click", function(){
 		var thisrule = $(this).parents("#rules_list>div");
 		deleteRule(thisrule);  	
 	});
-	
 	$("#rules_list").prepend(newRule);
-
 	$("#rules_list #checkPorts"+id).attr("checkedLabel",_("APPLICATIONS_PORT_ON"));
 	$("#rules_list #checkPorts"+id).attr("uncheckedLabel",_("APPLICATIONS_PORT_OFF"));
 	reloadTextsDiv('rules_list');
 	$("#rules_list #checkPorts"+id).attr("checked",true); 
-	
 	updateRuleForm(newRule);
-	
 	$("#select_traffic"+id).selectbox();
 	changeFlag();
 	updateSelectEffects();
 	updateScroll();
 }
-
 function updateRuleForm(rule){
 	var value = rule.find("input[type=checkbox]").attr("checked");
 	var from = rule.find(".fromField");
 	var until = rule.find(".untilField");
 	var from1 = rule.find(".fromField1");
 	var until1 = rule.find(".untilField1");
-	
 	if (value){
 		from.find("span").text(_("APPLICATIONS_EMPTY"));
 		from.find("span").attr("key","APPLICATIONS_EMPTY");
@@ -937,7 +847,6 @@ function updateRuleForm(rule){
 		from1.find("span").css("width",'5px');
 		until1.css('visibility', 'hidden');
 		until1.find("input").css('width', '31px');
-				
 	}else{
 		from.find("span").text(_("APPLICATIONS_RULES_FROM"));
 		from.find("span").attr("key","APPLICATIONS_RULES_FROM");
@@ -951,7 +860,6 @@ function updateRuleForm(rule){
 		until1.find("input").css('width', '40px');
 	}
 }
-
 function showApplicationSelected(idapp){
 	//alert("showApplicationSelected entry!");
 	if(flagChange){
@@ -1008,10 +916,8 @@ function reloadList(success,returnData){
 	showPageApplicationsList(currentPage);
 }
 function loadSelectedAppStyle(idapp){
-	
 	$('div[class=application_arrow]').css('display', 'none');
 	$('div[class=application_selected]').attr("class","application");
-	
 	$('div[id=arrow'+idapp+']').css('display', 'block');
 	$('div[id=arrow'+idapp+']').css('display', 'block');
 	$('div[id='+idapp+']').attr("class","application_selected");
@@ -1020,13 +926,9 @@ function showRules(application){
 	//alert("showRules entry!");
 	$("#rules_list").html("");
 	current_rules = application.RULES.length;
-
-	
-	
 	//adding every rule to the form
 	var i=0;
  	for (; i < current_rules; i++) {	
-	
 		var rule = application.RULES[i];
 		var newRule = $("#sample_rule>div").clone();
 		newRule.css("display", "block");
@@ -1042,29 +944,23 @@ function showRules(application){
 		newRule.find("input[id=ruleEndWanN]").attr("value", rule.endWan);
 		newRule.find("input[id=ruleEndWanN]").attr("id", "ruleEndWan"+ id);		
 		newRule.find("select[id=select_trafficN]").attr("id", "select_traffic"+ id);
-		
-		
 		newRule.find("div.minus_icon").bind("click", function(){
 			var thisrule = $(this).parents("#rules_list>div");
 			deleteRule(thisrule);
 		});
-		
 		newRule.find("input[id=checkPorts"+id+"]").bind("change" , function(){
 			var thisrule = $(this).parents("#rules_list>div");
 			if (thisrule!=null && thisrule.length>0)
 			updateRuleForm(thisrule);
 			changeFlag();	
 		});
-		
 		$("#rules_list").append(newRule);
-		
 		$("#rules_list #checkPorts"+id).attr("checkedLabel",_("APPLICATIONS_PORT_ON"));
 		$("#rules_list #checkPorts"+id).attr("uncheckedLabel",_("APPLICATIONS_PORT_OFF"));
 		if(rule.startWan == rule.endWan){
 			newRule.find("input[type=checkbox]").attr("checked",true);
 			updateRuleForm(newRule);
 		}
-		
 		$("select#select_traffic"+id+" option[value='"+rule.protocol+"']").attr("selected", "selected");
 		$("#select_traffic"+id).selectbox();
 	}
@@ -1076,31 +972,24 @@ function showRules(application){
 	updateSelectEffects();
 	updateScroll();
 }
-
 function updateSelectEffects(){
-
 	var rules = $("#rules_list>div");
 	var N = rules.length;
 	var lastone = null;
 	var penultimateOne = null;
-	
 	//initial status
 	rules.find(".jquery-selectbox-moreButton").unbind( "click",behaviourLastSelect);
 	rules.find(".jquery-selectbox-moreButton").unbind( "click",behaviourPenultimateSelect);
 	rules.find("select").unbind( "change");
-
 	if (N>0) lastone=jQuery(rules[N-1]);
 	if (N>1) penultimateOne=jQuery(rules[N-2]);
 	if (N>=3){
 		lastone.find(".jquery-selectbox-moreButton").bind( "click", behaviourLastSelect);
 		penultimateOne.find(".jquery-selectbox-moreButton").bind( "click", behaviourPenultimateSelect);
-		
 		lastone.find("select").bind( "change", closeLastSelect);
 		penultimateOne.find("select").bind( "change", closeLastSelect);
 	}
 }
-
-
 function behaviourLastSelect(){
 	var select = jQuery(this).parent();
 	if (select.hasClass("selectOpen")) {	//hide
@@ -1110,7 +999,6 @@ function behaviourLastSelect(){
 		openLastSelect(101);
 	}
 }
-
 function behaviourPenultimateSelect(){
 	var select = jQuery(this).parent();
 	if (select.hasClass("selectOpen")) {	//hide
@@ -1120,28 +1008,22 @@ function behaviourPenultimateSelect(){
 		openLastSelect(67);
 	}
 }
-
 function openLastSelect(width){
 	var widthLast = "101";
 	if (width!=undefined && width>0){
 		widthLast = ""+width;
 	}
-
 	//adding space for the list of options at the end of the scroll layer	
 	$("#rules_list>div:last-child").css("height", widthLast+ "px");
 	updateScroll();
-	
 	jQuery(document).bind('click', addBlurEvent);
 }
-
 function closeLastSelect(){
 	jQuery(document).unbind('click', addBlurEvent);
-	
 	//removing not used space at the end of the scroll layer
 	$("#rules_list>div:last-child").css("height", "34px");
 	updateScroll();
 }
-
 function addBlurEvent(e){
 	var trgt = e.target;
 	var currentListElements = jQuery('.jquery-selectbox-list:visible').parent().find('*').andSelf();
@@ -1150,7 +1032,6 @@ function addBlurEvent(e){
 	}
 	return false;
 }
-
 function deleteRule(rule){
 	//alert("deleteRule entry!");
 	rule.remove();
@@ -1159,11 +1040,9 @@ function deleteRule(rule){
 	updateSelectEffects();
 	updateScroll();
 }
-
 function newdeleteRule(rule){
 	rule.remove();
 }
-
 function loadNameApplication(nameApplication){
 	$("#application_name").html(nameApplication+"<input id='applicationName'  onkeyup='changeFlag()' style='display:none' name='applicationName' value='"+nameApplication+"'></input>");
  	$('div[id=edit_icon]').css('display', 'block');
@@ -1186,7 +1065,6 @@ function loadNameNewApplication(){
  	reloadTextsDiv('application_name');
  	$("#applicationName").attr("value",_("APPLICATIONS_NEW_APPLICATION"));
  }
-
 function loadDevicesList(){
 		devicesList = allDevices;
 		$("#application_device").html("");
@@ -1203,7 +1081,6 @@ function loadDevicesList(){
 				htmlDevicesList=htmlDevicesList+"<option icon="+device.idIcon+" value="+device.ipAddress+"><span>"+nameDevice+"</span></option>	";
 			}
 		}
-
 		htmlDevicesList=htmlDevicesList+"</select>";
 		$("#application_device").append(htmlDevicesList);
 		reloadTextsDiv('application_device');
@@ -1214,13 +1091,11 @@ function selectDevicesList(ipAssigned){
 		$("select#selectDevices option[value='"+ipAssigned+"']").attr("selected", "selected");
 	 	$("#selectDevices").selectbox();
 }
-
 function loadApplicationsList(success, returnData){
 	//alert("loadApplicationsList entry!");
 	if (success){
 		showApplicationsList(success, returnData)
 		loadNewApplication();
-		
 	}else{
 		showWarning(_(returnData));
 	}
@@ -1246,7 +1121,6 @@ function loadNewApplication(){
  	flagChange = false;
  	showPageApplicationsList(1);
  }
-
 function deleteApplicationSelected(){
 	//alert("deleteApplicationSelected entry!");
 	if (idApplicationSelected!=-1){
@@ -1268,7 +1142,6 @@ function validateForm(){
 		showWarning(_("APPLICATIONS_WARNING_NAME_EMPTY"));
 		return false;
 	}
-
 	var res = true;
 	$("#rules_list>div").each( function(index){
 		var thisrule = $(this);
@@ -1283,12 +1156,10 @@ function validateForm(){
 			}
 		}
 	});
-	
 	if(!res){
 		showWarning(_("APPLICATIONS_WARNING_PORT_EMPTY"));
 		return  false;	
 	}
-	
 	return true;
 }
 var applicationJSON;
@@ -1297,7 +1168,6 @@ function createNewApplication(){
 	var completeSaveTime = 0;
 	var reloadTime = 0;
 	var ruleNum = 0;
-
 	if (applicationsInfoList.length>35){
 		showWarning(_("APPLICATIONS_WARNING_MAX_NUMBER_APPS"));
 	}else{
@@ -1310,7 +1180,6 @@ function createNewApplication(){
 			flagChange = false;
 			$('#dialog').dialog("close");
 			window.parent.$.openLoadingMask(1);
-			
 			ruleNum = 0;
 			$("#rules_list>div").each( function(index){
 				ruleNum++;
@@ -1328,9 +1197,7 @@ function createNewApplication(){
 		}
 		renoveSession();
 	}
-	
 }
-
 function modifyApplicationSelected(){
 	if (validateForm()){
 		$('#acceptApp').unbind('click');   
@@ -1356,7 +1223,6 @@ function createApplicationJSON(){
 		var objetcRule = new Object();
 		var thisrule = $(this);
 		var select_traffic = thisrule.find("select");
-		
 		if (thisrule!=null && thisrule.length==1){
 			objetcRule.ipType = $('#IPType').val();
 			objetcRule.idRule   = thisrule.attr("idRule");
@@ -1369,7 +1235,6 @@ function createApplicationJSON(){
 				//objetcRule.startLan	= objetcRule.startWan;
 				//objetcRule.endLan   = objetcRule.endWan;
 				objetcRule.endLan   = objetcRule.startLan;
-				
 			}else{
 				objetcRule.endWan = thisrule.find(".untilField>input").val();
 				objetcRule.endLan = thisrule.find(".untilField1>input").val();
@@ -1396,7 +1261,6 @@ function createApplicationJSON(){
 			k++;
 		}
 	});
-	
 	if(k == 0 ){
 		showWarning(_("APPLICATIONS_WARNING_RULES"));
 		return false;
@@ -1404,7 +1268,6 @@ function createApplicationJSON(){
 		objectApp.RULES = rules;
 		var applicationJSON = $.toJSON(objectApp);
 		applicationJSON="{\"APPLICATION\":"+applicationJSON+"}";
-
 		return applicationJSON;
 	}
 }
@@ -1422,7 +1285,6 @@ function checkPort(obj){
 	}
 	return true;	
 }
-
 function checkIPFormat(address)
 {
 	var IP = address.value;
@@ -1454,7 +1316,6 @@ function checkIPFormat(address)
 				return (false);
 			}
 		}
-		
 	int_add0=parseInt(IPsplit[0], 10);
 	int_add3=parseInt(IPsplit[3], 10);			
 	if(int_add0 == 0 || int_add0 == 127 || int_add0 > 223 || int_add3 ==0 || int_add3 ==255)
@@ -1466,12 +1327,9 @@ function checkIPFormat(address)
 	}		
 	return (true);
 }
-
 function changeFlag(){
 	flagChange = true;
 }
-
-
 //APIS/api_fake.js
 var applicationsInfoarray=new Array();
 /*----------------------------*/
@@ -1488,7 +1346,6 @@ function closeSession(callback){
 		}
 	);
 }
-
 /*---------------------------------------*/
 /*	 AUTHENTICATION AND PASSWORD CHANGE	 */
 /*---------------------------------------*/
@@ -1537,7 +1394,6 @@ function changePassword(user,oldPassword,newPassword, callback){
 			}
 		);
 }
-
 /*---------------------------*/
 /*	 DEVICES CONFIGURATION 	 */
 /*---------------------------*/
@@ -1556,7 +1412,6 @@ function listDevices(callback){
 			}
 		});
 }
- 
 //returnJSON structure contains a devicesJSON structure with information about all devices to paint networkMap
 function modifyDevice(devicesJSON,callback){
 	//global variable allDevices
@@ -1590,10 +1445,8 @@ function modifyDevice(devicesJSON,callback){
 		error:function(xmlhttprequest, textStatus,errorThrown){
 			callback(false,"ERROR_GENERAL");
 	 	}
-	 	
 	});
 }
-
 //returnJSON structure contains a devicesJSON structure with information about all devices to paint networkMap
 function removeDevice(idDevice,callback){
 	//global variable allDevices
@@ -1625,14 +1478,11 @@ function removeDevice(idDevice,callback){
 		error:function(xmlhttprequest, textStatus,errorThrown){
 			callback(false,"ERROR_GENERAL");
 	 	}
-	 	
 	});
-	
 }
 /*-------------------*/
 /*		INTERNET   	 */
 /*-------------------*/
-
 //returnJSON structure contains an internetJSON structure
 function getInternetInfo(callback){
 	$.ajax({
@@ -1650,21 +1500,17 @@ function getInternetInfo(callback){
 		}
 	);	
 }
-
 //returnJSON structure contains a internetJSON structure
 function setInternet(internetJSON, callback){
 	var postData = eval ("(" + internetJSON + ")");
-
 /*
 	var natStatus;
 	var addrStatus;
-	
 	if(postData.INTERNET.PPP.natvalue){
 		natStatus="Enable";
 	}else{
 		natStatus="Disable";
 	}
-
 	if(postData.INTERNET.PPP.dynamic){
 		addrStatus="0";
 	}else{
@@ -1677,7 +1523,6 @@ function setInternet(internetJSON, callback){
 		//alert("isp="+postData.INTERNET.PPP.isp);
 		//alert("encap="+postData.INTERNET.PPP.encap);
 		//alert("natenable="+postData.INTERNET.PPP.natenable);
-	
 		$.ajax({
 	  		url: '/cgi-bin/mhs/returnInternetJSON.asp',
 	  		dataType: 'json',
@@ -1699,7 +1544,6 @@ function setInternet(internetJSON, callback){
 		//alert("isp="+postData.INTERNET.PPP.isp);
 		//alert("encap="+postData.INTERNET.PPP.encap);
 		//alert("natenable="+postData.INTERNET.PPP.natenable);
-	
 		$.ajax({
 	  		url: '/cgi-bin/mhs/returnInternetJSON.asp',
 	  		dataType: 'json',
@@ -1715,7 +1559,6 @@ function setInternet(internetJSON, callback){
 			}
 		});
 	}
-
 	jQuery.getJSON( '/mhs/APIS/returnInternetJSON.txt', 
 			function(returnData, status){
 				if(returnData.RETURN.success){
@@ -1747,7 +1590,6 @@ function setInternet(internetJSON, callback){
  	}); 
  	*/
 }
-
 /*-----------------------*/
 /*		APPLICATIONS   	 */
 /*-----------------------*/
@@ -1766,7 +1608,6 @@ function listApplications(callback){
 			}
 		});
 }
-
 //returnJSON structure contains an applicationsListJSON structure
 function listFreeApplications(callback){
 	jQuery.getJSON( '/mhs/APIS/returnApplicationsListJSON.txt', 
@@ -1779,7 +1620,6 @@ function listFreeApplications(callback){
 			}
 		);
 }
- 
 //returnJSON structure contains an applicationsListJSON structure
 function listAssignedApplications(idDevice,callback){
 	jQuery.getJSON( '/mhs/APIS/returnApplicationsListJSON.txt', 
@@ -1792,7 +1632,6 @@ function listAssignedApplications(idDevice,callback){
 			}
 		);
 }
-
 //returnJSON structure contains an applicationsJSON structure
 function infoApplications(callback){
 	$.ajax({
@@ -1843,7 +1682,6 @@ function myNewApplication(ruleNum, postData){
 	}
 	globalNum++;
 }
-
 function newApplication6(applicationJSON,delApplicationJSON,callback){
 	var currentId = applicationsInfoarray.length;
 	var postData = eval ("(" + applicationJSON + ")");
@@ -1853,7 +1691,6 @@ function newApplication6(applicationJSON,delApplicationJSON,callback){
 	var i=0;
 	ruleNum= postData.APPLICATION.RULES.length;
 	delruleNum = postDelData.APPLICATION.RULES.length;
-
 	var data = {
 	    sessionKey: postData.APPLICATION.sessionKey,
 		active: "Yes",
@@ -1865,9 +1702,7 @@ function newApplication6(applicationJSON,delApplicationJSON,callback){
 		srcPrefix:"128",
 		dstPrefix:"128"
 	};		
-
 	//#####################start delete
-	
 	if(delruleNum>0){
 		data.delFlag0 = "Delete";
 		data.deldirName0 = postDelData.APPLICATION.RULES[0].dirName;
@@ -2028,9 +1863,7 @@ function newApplication6(applicationJSON,delApplicationJSON,callback){
 		data.deldirName31 = postDelData.APPLICATION.RULES[31].dirName;
 		data.delcurNum31 = postDelData.APPLICATION.RULES[31].curNum;
 	}
-	
 	//#####################end delete
-	
 	//#####################start add or edit
 	if(ruleNum>0){
 		if(postData.APPLICATION.RULES[0].idRule != "-1"){
@@ -3793,13 +3626,10 @@ function newApplication6(applicationJSON,delApplicationJSON,callback){
 		data.submitValue31 = "None";
 	}
 	//#####################end add or edit
-
 	var url = "/cgi-bin/mhs/returnApplicationv6JSON.asp";
 	var callback;
 	callback = function(responseData, textStatus) { };
 	$.post(url, data, callback, "asp");
-	
-	
 	jQuery.getJSON( '/mhs/APIS/returnResultJSON.txt', 
 			function(returnData, status){
 				if(returnData.RETURN.success){
@@ -3809,9 +3639,7 @@ function newApplication6(applicationJSON,delApplicationJSON,callback){
 				}
 			}
 		);
-		
 }
-
 //returnJSON structure contains an applicationJSON structure
 function newApplication(applicationJSON,callback){
 	//alert("newApplication entry!");
@@ -3839,10 +3667,8 @@ function newApplication(applicationJSON,callback){
 			callback(false,"ERROR_GENERAL");
 		}
 	});*/
-
     var currentId = applicationsInfoarray.length;
 	 var postData = eval ("(" + applicationJSON + ")");
-	 
 	 var ruleNum =0;var i=0;
 	 ruleNum= postData.APPLICATION.RULES.length;
 	 globalNum = 0;
@@ -3871,13 +3697,11 @@ function newApplication(applicationJSON,callback){
 		cache: false,
 	  	data: data
 	});
-
 	*/
 	var finishFlag = "NO";
 	//alert("ruleNum="+ruleNum);
 	var sh;
 	sh=setInterval(myNewApplication(ruleNum, postData),1000);
-	
 	for(i=0;i<ruleNum;i++){
 		//alert("ipType="+postData.APPLICATION.RULES[i].ipType);
 		//alert("totNum="+postData.APPLICATION.RULES[i].totNum);
@@ -3899,7 +3723,6 @@ function newApplication(applicationJSON,callback){
 			}
 			if(postData.APPLICATION.RULES[i].idRule != "-1"){
 				//alert("IPv6 != -1");
-				
 				$.ajax({
 	  				url: '/cgi-bin/mhs/returnApplicationJSON.asp',
 	  				dataType: 'asp',
@@ -3920,7 +3743,6 @@ function newApplication(applicationJSON,callback){
 						endLan:postData.APPLICATION.RULES[i].endLan
 					}
 				});
-				
 			}
 			else{
 				//alert("IPv6 == -1");
@@ -3950,14 +3772,12 @@ function newApplication(applicationJSON,callback){
 						pvcid:postData.APPLICATION.RULES[i].pvcid
 					}
 				});
-				
 			}
 		}
 		else{
 			//alert("IPv4");
 			//alert("flag="+finishFlag);
 			//alert("addr="+postData.APPLICATION.RULES[i].addr);
-			
 			$.ajax({
 	  			url: '/cgi-bin/mhs/returnApplicationJSON.asp',
 	  			dataType: 'asp',
@@ -3978,10 +3798,8 @@ function newApplication(applicationJSON,callback){
 					endLan:postData.APPLICATION.RULES[i].endLan
 				}
 			});
-			
 		}
 	}
-
        jQuery.getJSON( '/mhs/APIS/returnResultJSON.txt', 
 			function(returnData, status){
 				if(returnData.RETURN.success){
@@ -3993,9 +3811,7 @@ function newApplication(applicationJSON,callback){
 				}
 			}
 		);
-	
 }
-
 function deleteApplication(idApplication,callback){	
 	$.ajax({
 	  	url: 'returnApplicationJSON.asp',
@@ -4009,17 +3825,13 @@ function deleteApplication(idApplication,callback){
 			appid: idApplication
 		}
 	});
-	
 }
- 
 //returnJSON structure contains an applicationJSON structure
 function modifyApplication(applicationJSON,callback){	
 	var postData = eval ("(" + applicationJSON + ")");
 	var appId = postData.APPLICATION.idApplication;
 	 var ruleNum =0;var i=0;
 	 ruleNum= postData.APPLICATION.RULES.length;
-	 
-	
 	$.ajax({
 	  	url: 'returnApplicationJSON.asp',
 	  	dataType: 'json',
@@ -4032,7 +3844,6 @@ function modifyApplication(applicationJSON,callback){
 			appid: appId
 		}
 	});
-
 	var data={
 			submitValue:"New",
 			sessionKey: postData.APPLICATION.sessionKey,
@@ -4051,8 +3862,6 @@ function modifyApplication(applicationJSON,callback){
 		temp = "endWan"+i;
 		data[temp]=postData.APPLICATION.RULES[i-1].endWan;
 	}
-
-	
 	$.ajax({
 	  	url: 'returnApplicationJSON.asp',
 	  	dataType: 'json',
@@ -4060,9 +3869,7 @@ function modifyApplication(applicationJSON,callback){
 		cache: false,
 	  	data: data
 	});
-	  			
 }
-
 function modifyListAssignedApplications(idDevice,applicationsListJSON,callback){
 	var i=0;
 	var j=0;
@@ -4103,10 +3910,8 @@ function modifyListAssignedApplications(idDevice,applicationsListJSON,callback){
 		error:function(xmlhttprequest, textStatus,errorThrown){
 			callback(false,"ERROR_GENERAL");
  		}
- 		
 	});
 }
-
 /*---------------------------*/
 /*		 WIFI AND DHCP   	 */
 /*---------------------------*/
@@ -4127,7 +3932,6 @@ function getWifiInfo(callback){
 		}
 	});
 }
-
 //returnJSON structure 
 function setWifiConfiguration(wifiJSON, callback){
 	var postData = eval ("(" + wifiJSON + ")");
@@ -4135,23 +3939,19 @@ function setWifiConfiguration(wifiJSON, callback){
 	var channelMode=postData.WIFI.channelMode;
 	var ruleNum =0;var i=0;
 	var WPS_Status = postData.WPS.status;
-	
 	ruleNum= postData.RULES.length;	
-	
 	if(ruleNum == 0){
 		{
 			var macfltmode = postData.WIFI.macfltmode;
 			if ( macfltmode == 1 && WPS_Status != 0){
 				alert("MAC Filter mode set to Allow,but there is not any rule,so we disable WPS.");
-				WPS_Status = 0; //MAC FLT select allow,but no any rule ,disable WPS
+				WPS_Status = 0;
 			}
 		}
 	}
-	
 	var data = {
 		sessionKey: postData.KEY.sessionKey
 	};
-	
 	if(ruleNum > 0){
    			data.MACAddr0 = postData.RULES[ruleNum-1].wifiMac;
 			data.MACAction0 = postData.RULES[ruleNum-1].action;
@@ -4159,7 +3959,6 @@ function setWifiConfiguration(wifiJSON, callback){
 	        data.MACAddr0 = "";
 			data.MACAction0 = "";
 	}
-
 	if(ruleNum > 1){
 	        data.MACAddr1 = postData.RULES[ruleNum-2].wifiMac;
 			data.MACAction1 = postData.RULES[ruleNum-2].action;
@@ -4168,7 +3967,6 @@ function setWifiConfiguration(wifiJSON, callback){
 	        data.MACAddr1 = "";
 			data.MACAction1 = "";
 	}
-
 	if(ruleNum > 2){
 	        data.MACAddr2 = postData.RULES[ruleNum-3].wifiMac;
 			data.MACAction2 = postData.RULES[ruleNum-3].action;
@@ -4177,7 +3975,6 @@ function setWifiConfiguration(wifiJSON, callback){
 	        data.MACAddr2 = "";
 			data.MACAction2 = "";
 	}
-
 	if(ruleNum > 3){
 	        data.MACAddr3 = postData.RULES[ruleNum-4].wifiMac;
 			data.MACAction3 = postData.RULES[ruleNum-4].action;
@@ -4186,7 +3983,6 @@ function setWifiConfiguration(wifiJSON, callback){
 	        data.MACAddr3 = "";
 			data.MACAction3 = "";
 	}
-
 	if(ruleNum > 4){
 	        data.MACAddr4 = postData.RULES[ruleNum-5].wifiMac;
 			data.MACAction4 = postData.RULES[ruleNum-5].action;
@@ -4195,7 +3991,6 @@ function setWifiConfiguration(wifiJSON, callback){
 	        data.MACAddr4 = "";
 			data.MACAction4 = "";
 	}
-
 	if(ruleNum > 5){
 	        data.MACAddr5 = postData.RULES[ruleNum-6].wifiMac;
 			data.MACAction5 = postData.RULES[ruleNum-6].action;
@@ -4204,7 +3999,6 @@ function setWifiConfiguration(wifiJSON, callback){
 	        data.MACAddr5 = "";
 			data.MACAction5 = "";
 	}
-
 	if(ruleNum > 6){
 	        data.MACAddr6 = postData.RULES[ruleNum-7].wifiMac;
 			data.MACAction6 = postData.RULES[ruleNum-7].action;			
@@ -4213,7 +4007,6 @@ function setWifiConfiguration(wifiJSON, callback){
 	        data.MACAddr6 = "";
 			data.MACAction6 = "";
 	}
-
 	if(ruleNum > 7){
 	        data.MACAddr7 = postData.RULES[ruleNum-8].wifiMac;
 			data.MACAction7 = postData.RULES[ruleNum-8].action;
@@ -4222,7 +4015,6 @@ function setWifiConfiguration(wifiJSON, callback){
 	        data.MACAddr7 = "";
 			data.MACAction7 = "";
 	}
-
 	if(ruleNum > 8){
 	        data.MACAddr8 = postData.RULES[ruleNum-9].wifiMac;
 			data.MACAction8 = postData.RULES[ruleNum-9].action;
@@ -4231,7 +4023,6 @@ function setWifiConfiguration(wifiJSON, callback){
 	        data.MACAddr8 = "";
 			data.MACAction8 = "";
 	}
-
 	if(ruleNum > 9){
 	        data.MACAddr9 = postData.RULES[ruleNum-10].wifiMac;
 			data.MACAction9 = postData.RULES[ruleNum-10].action;
@@ -4240,7 +4031,6 @@ function setWifiConfiguration(wifiJSON, callback){
 	        data.MACAddr9 = "";
 			data.MACAction9 = "";
 	}
-
 	if(ruleNum > 10){
 	        data.MACAddr10 = postData.RULES[ruleNum-11].wifiMac;
 			data.MACAction10 = postData.RULES[ruleNum-11].action;
@@ -4249,7 +4039,6 @@ function setWifiConfiguration(wifiJSON, callback){
 	        data.MACAddr10 = "";
 			data.MACAction10 = "";
 	}
-
 	if(ruleNum > 11){
 	        data.MACAddr11 = postData.RULES[ruleNum-12].wifiMac;
 			data.MACAction11 = postData.RULES[ruleNum-12].action;
@@ -4258,7 +4047,6 @@ function setWifiConfiguration(wifiJSON, callback){
 	        data.MACAddr11 = "";
 			data.MACAction11 = "";
 	}
-
 	if(ruleNum > 12){
 	        data.MACAddr12 = postData.RULES[ruleNum-13].wifiMac;
 			data.MACAction12 = postData.RULES[ruleNum-13].action;
@@ -4267,7 +4055,6 @@ function setWifiConfiguration(wifiJSON, callback){
 	        data.MACAddr12 = "";
 			data.MACAction12 = "";
 	}
-
 	if(ruleNum > 13){
 	        data.MACAddr13 = postData.RULES[ruleNum-14].wifiMac;
 			data.MACAction13 = postData.RULES[ruleNum-14].action;
@@ -4276,7 +4063,6 @@ function setWifiConfiguration(wifiJSON, callback){
 	        data.MACAddr13 = "";
 			data.MACAction13 = "";
 	}
-
 	if(ruleNum > 14){
 	        data.MACAddr14 = postData.RULES[ruleNum-15].wifiMac;
 			data.MACAction14 = postData.RULES[ruleNum-14].action;
@@ -4285,7 +4071,6 @@ function setWifiConfiguration(wifiJSON, callback){
 	        data.MACAddr14 = "";
 			data.MACAction14 = "";
 	}
-
 	if(ruleNum > 15){
 	        data.MACAddr15 = postData.RULES[ruleNum-16].wifiMac;
 			data.MACAction15 = postData.RULES[ruleNum-16].action;
@@ -4294,7 +4079,6 @@ function setWifiConfiguration(wifiJSON, callback){
 	        data.MACAddr15 = "";
 			data.MACAction15 = "";
 	}
-
 	if(ruleNum > 16){
 	        data.MACAddr16 = postData.RULES[ruleNum-17].wifiMac;
 			data.MACAction16 = postData.RULES[ruleNum-17].action;
@@ -4303,7 +4087,6 @@ function setWifiConfiguration(wifiJSON, callback){
 	        data.MACAddr16 = "";
 			data.MACAction16 = "";
 	}
-
 	if(ruleNum > 17){
 	        data.MACAddr17 = postData.RULES[ruleNum-18].wifiMac;
 			data.MACAction17 = postData.RULES[ruleNum-18].action;
@@ -4312,7 +4095,6 @@ function setWifiConfiguration(wifiJSON, callback){
 	        data.MACAddr17 = "";
 			data.MACAction17 = "";
 	}
-
 	if(ruleNum > 18){
 	        data.MACAddr18 = postData.RULES[ruleNum-19].wifiMac;
 			data.MACAction18 = postData.RULES[ruleNum-19].action;
@@ -4321,7 +4103,6 @@ function setWifiConfiguration(wifiJSON, callback){
 	        data.MACAddr18 = "";
 			data.MACAction18 = "";
 	}
-
 	if(ruleNum > 19){
 	        data.MACAddr19 = postData.RULES[ruleNum-20].wifiMac;
 			data.MACAction19 = postData.RULES[ruleNum-20].action;
@@ -4330,7 +4111,6 @@ function setWifiConfiguration(wifiJSON, callback){
 	        data.MACAddr19 = "";
 			data.MACAction19 = "";
 	}
-
 	if(ruleNum > 20){
 	        data.MACAddr20 = postData.RULES[ruleNum-21].wifiMac;
 			data.MACAction20 = postData.RULES[ruleNum-21].action;
@@ -4339,7 +4119,6 @@ function setWifiConfiguration(wifiJSON, callback){
 	        data.MACAddr20 = "";
 			data.MACAction20 = "";
 	}
-
 	if(ruleNum > 21){
 	        data.MACAddr21 = postData.RULES[ruleNum-22].wifiMac;
 			data.MACAction21 = postData.RULES[ruleNum-22].action;
@@ -4348,7 +4127,6 @@ function setWifiConfiguration(wifiJSON, callback){
 	        data.MACAddr21 = "";
 			data.MACAction21 = "";
 	}
-
 	if(ruleNum > 22){
 	        data.MACAddr22 = postData.RULES[ruleNum-23].wifiMac;
 			data.MACAction22 = postData.RULES[ruleNum-23].action;
@@ -4357,7 +4135,6 @@ function setWifiConfiguration(wifiJSON, callback){
 	        data.MACAddr22 = "";
 			data.MACAction22 = "";
 	}
-
 	if(ruleNum > 23){
 	        data.MACAddr23 = postData.RULES[ruleNum-24].wifiMac;
 			data.MACAction23 = postData.RULES[ruleNum-24].action;
@@ -4366,7 +4143,6 @@ function setWifiConfiguration(wifiJSON, callback){
 	        data.MACAddr23 = "";
 			data.MACAction23 = "";
 	}
-
 	if(ruleNum > 24){
 	        data.MACAddr24 = postData.RULES[ruleNum-25].wifiMac;
 			data.MACAction24 = postData.RULES[ruleNum-25].action;
@@ -4375,7 +4151,6 @@ function setWifiConfiguration(wifiJSON, callback){
 	        data.MACAddr24 = "";
 			data.MACAction24 = "";
 	}
-
 	if(ruleNum > 25){
 	        data.MACAddr25 = postData.RULES[ruleNum-26].wifiMac;
 			data.MACAction25 = postData.RULES[ruleNum-26].action;
@@ -4384,7 +4159,6 @@ function setWifiConfiguration(wifiJSON, callback){
 	        data.MACAddr25 = "";
 			data.MACAction25 = "";
 	}
-
 	if(ruleNum > 26){
 	        data.MACAddr26 = postData.RULES[ruleNum-27].wifiMac;
 			data.MACAction26 = postData.RULES[ruleNum-27].action;
@@ -4393,7 +4167,6 @@ function setWifiConfiguration(wifiJSON, callback){
 	        data.MACAddr26 = "";
 			data.MACAction26 = "";
 	}
-
 	if(ruleNum > 27){
 	        data.MACAddr27 = postData.RULES[ruleNum-28].wifiMac;
 			data.MACAction27 = postData.RULES[ruleNum-28].action;
@@ -4402,7 +4175,6 @@ function setWifiConfiguration(wifiJSON, callback){
 	        data.MACAddr27 = "";
 			data.MACAction27 = "";
 	}
-
 	if(ruleNum > 28){
 	        data.MACAddr28 = postData.RULES[ruleNum-29].wifiMac;
 			data.MACAction28 = postData.RULES[ruleNum-29].action;
@@ -4411,7 +4183,6 @@ function setWifiConfiguration(wifiJSON, callback){
 	        data.MACAddr28 = "";
 			data.MACAction28 = "";
 	}
-
 	if(ruleNum > 29){
 	        data.MACAddr29 = postData.RULES[ruleNum-30].wifiMac;
 			data.MACAction29 = postData.RULES[ruleNum-30].action;
@@ -4420,7 +4191,6 @@ function setWifiConfiguration(wifiJSON, callback){
 	        data.MACAddr29 = "";
 			data.MACAction29 = "";
 	}
-
 	if(ruleNum > 30){
 	        data.MACAddr30 = postData.RULES[ruleNum-31].wifiMac;
 			data.MACAction30 = postData.RULES[ruleNum-31].action;
@@ -4429,7 +4199,6 @@ function setWifiConfiguration(wifiJSON, callback){
 	        data.MACAddr30 = "";
 			data.MACAction30 = "";
 	}
-
 	if(ruleNum > 31){
 	        data.MACAddr31 = postData.RULES[ruleNum-32].wifiMac;
 			data.MACAction31 = postData.RULES[ruleNum-32].action;
@@ -4438,7 +4207,6 @@ function setWifiConfiguration(wifiJSON, callback){
 	        data.MACAddr31 = "";
 			data.MACAction31 = "";
 	}
-
 	if(wifistatus){
 		postData.WIFI.status=1;
 		data.sessionKey 	= 	postData.KEY.sessionKey;
@@ -4464,20 +4232,12 @@ function setWifiConfiguration(wifiJSON, callback){
 		data.wifistatus 	=	postData.WIFI.status;
 		data.WPSStatus		=	WPS_Status;
 	}
-	
 	var url = "/mhs_loging.cmd";
 	var callback = function(responseData, textStatus){ 
 		window.location.href="/mhs_loging.cmd";
 	};
-	$.post(url, data, callback, "cmd");
-	
-/*
-	$.openLoadingMask(1);
-	setTimeout(function(){$.closeLoadingMask(1);}, 15000);	
-	closeDialog();
-*/	
+	$.get(url, data, callback, "cmd");
 }
-
 function setWifi5gConfiguration(wifiJSON, callback){
 	var postData = eval ("(" + wifiJSON + ")");
 	var wifistatus= postData.WIFI.status;
@@ -4487,15 +4247,10 @@ function setWifi5gConfiguration(wifiJSON, callback){
     var ssidVisibility = postData.WIFI.ssidVisibility;
 	var WscMode  = '<%ejGetExtWl(wlWscMode)%>';
 	ruleNum= postData.RULES.length;	
-	
 	if(ruleNum == 0){
-		//var MACAddr0=postData.RULES[0].wifiMac;
-		//if(MACAddr0=="")
 		{
 			var macfltmode = postData.WIFI.macfltmode;
-
 			if ( (macfltmode == "allow" || ssidVisibility == 1) && WscMode != "disabled"){
-				//alert("MAC Filter mode set to Allow,but there is not any rule,so we disable WPS.");
 				WPS_Status = "disabled"; //MAC FLT select allow,but no any rule ,disable WPS
 				alert("El WPS se desactivara automáticamente ya que usted habilitó el filtro de Mac pero lo ha dejado vacío");
 			}
@@ -4509,11 +4264,9 @@ function setWifi5gConfiguration(wifiJSON, callback){
 			}
 		}
 	}
-	
 	var data = {
 		sessionKey: postData.KEY.sessionKey
 	};
-	
 	if(ruleNum > 0){
    			data.MACAddr0 = postData.RULES[ruleNum-1].wifiMac;
 			data.MACAction0 = postData.RULES[ruleNum-1].action;
@@ -4521,7 +4274,6 @@ function setWifi5gConfiguration(wifiJSON, callback){
 	        data.MACAddr0 = "";
 			data.MACAction0 = "";
 	}
-
 	if(ruleNum > 1){
 	        data.MACAddr1 = postData.RULES[ruleNum-2].wifiMac;
 			data.MACAction1 = postData.RULES[ruleNum-2].action;
@@ -4530,7 +4282,6 @@ function setWifi5gConfiguration(wifiJSON, callback){
 	        data.MACAddr1 = "";
 			data.MACAction1 = "";
 	}
-
 	if(ruleNum > 2){
 	        data.MACAddr2 = postData.RULES[ruleNum-3].wifiMac;
 			data.MACAction2 = postData.RULES[ruleNum-3].action;
@@ -4539,7 +4290,6 @@ function setWifi5gConfiguration(wifiJSON, callback){
 	        data.MACAddr2 = "";
 			data.MACAction2 = "";
 	}
-
 	if(ruleNum > 3){
 	        data.MACAddr3 = postData.RULES[ruleNum-4].wifiMac;
 			data.MACAction3 = postData.RULES[ruleNum-4].action;
@@ -4548,7 +4298,6 @@ function setWifi5gConfiguration(wifiJSON, callback){
 	        data.MACAddr3 = "";
 			data.MACAction3 = "";
 	}
-
 	if(ruleNum > 4){
 	        data.MACAddr4 = postData.RULES[ruleNum-5].wifiMac;
 			data.MACAction4 = postData.RULES[ruleNum-5].action;
@@ -4557,7 +4306,6 @@ function setWifi5gConfiguration(wifiJSON, callback){
 	        data.MACAddr4 = "";
 			data.MACAction4 = "";
 	}
-
 	if(ruleNum > 5){
 	        data.MACAddr5 = postData.RULES[ruleNum-6].wifiMac;
 			data.MACAction5 = postData.RULES[ruleNum-6].action;
@@ -4566,7 +4314,6 @@ function setWifi5gConfiguration(wifiJSON, callback){
 	        data.MACAddr5 = "";
 			data.MACAction5 = "";
 	}
-
 	if(ruleNum > 6){
 	        data.MACAddr6 = postData.RULES[ruleNum-7].wifiMac;
 			data.MACAction6 = postData.RULES[ruleNum-7].action;			
@@ -4575,7 +4322,6 @@ function setWifi5gConfiguration(wifiJSON, callback){
 	        data.MACAddr6 = "";
 			data.MACAction6 = "";
 	}
-
 	if(ruleNum > 7){
 	        data.MACAddr7 = postData.RULES[ruleNum-8].wifiMac;
 			data.MACAction7 = postData.RULES[ruleNum-8].action;
@@ -4584,7 +4330,6 @@ function setWifi5gConfiguration(wifiJSON, callback){
 	        data.MACAddr7 = "";
 			data.MACAction7 = "";
 	}
-
 	if(ruleNum > 8){
 	        data.MACAddr8 = postData.RULES[ruleNum-9].wifiMac;
 			data.MACAction8 = postData.RULES[ruleNum-9].action;
@@ -4593,7 +4338,6 @@ function setWifi5gConfiguration(wifiJSON, callback){
 	        data.MACAddr8 = "";
 			data.MACAction8 = "";
 	}
-
 	if(ruleNum > 9){
 	        data.MACAddr9 = postData.RULES[ruleNum-10].wifiMac;
 			data.MACAction9 = postData.RULES[ruleNum-10].action;
@@ -4602,7 +4346,6 @@ function setWifi5gConfiguration(wifiJSON, callback){
 	        data.MACAddr9 = "";
 			data.MACAction9 = "";
 	}
-
 	if(ruleNum > 10){
 	        data.MACAddr10 = postData.RULES[ruleNum-11].wifiMac;
 			data.MACAction10 = postData.RULES[ruleNum-11].action;
@@ -4611,7 +4354,6 @@ function setWifi5gConfiguration(wifiJSON, callback){
 	        data.MACAddr10 = "";
 			data.MACAction10 = "";
 	}
-
 	if(ruleNum > 11){
 	        data.MACAddr11 = postData.RULES[ruleNum-12].wifiMac;
 			data.MACAction11 = postData.RULES[ruleNum-12].action;
@@ -4620,7 +4362,6 @@ function setWifi5gConfiguration(wifiJSON, callback){
 	        data.MACAddr11 = "";
 			data.MACAction11 = "";
 	}
-
 	if(ruleNum > 12){
 	        data.MACAddr12 = postData.RULES[ruleNum-13].wifiMac;
 			data.MACAction12 = postData.RULES[ruleNum-13].action;
@@ -4629,7 +4370,6 @@ function setWifi5gConfiguration(wifiJSON, callback){
 	        data.MACAddr12 = "";
 			data.MACAction12 = "";
 	}
-
 	if(ruleNum > 13){
 	        data.MACAddr13 = postData.RULES[ruleNum-14].wifiMac;
 			data.MACAction13 = postData.RULES[ruleNum-14].action;
@@ -4638,7 +4378,6 @@ function setWifi5gConfiguration(wifiJSON, callback){
 	        data.MACAddr13 = "";
 			data.MACAction13 = "";
 	}
-
 	if(ruleNum > 14){
 	        data.MACAddr14 = postData.RULES[ruleNum-15].wifiMac;
 			data.MACAction14 = postData.RULES[ruleNum-14].action;
@@ -4647,7 +4386,6 @@ function setWifi5gConfiguration(wifiJSON, callback){
 	        data.MACAddr14 = "";
 			data.MACAction14 = "";
 	}
-
 	if(ruleNum > 15){
 	        data.MACAddr15 = postData.RULES[ruleNum-16].wifiMac;
 			data.MACAction15 = postData.RULES[ruleNum-16].action;
@@ -4656,7 +4394,6 @@ function setWifi5gConfiguration(wifiJSON, callback){
 	        data.MACAddr15 = "";
 			data.MACAction15 = "";
 	}
-
 	if(ruleNum > 16){
 	        data.MACAddr16 = postData.RULES[ruleNum-17].wifiMac;
 			data.MACAction16 = postData.RULES[ruleNum-17].action;
@@ -4665,7 +4402,6 @@ function setWifi5gConfiguration(wifiJSON, callback){
 	        data.MACAddr16 = "";
 			data.MACAction16 = "";
 	}
-
 	if(ruleNum > 17){
 	        data.MACAddr17 = postData.RULES[ruleNum-18].wifiMac;
 			data.MACAction17 = postData.RULES[ruleNum-18].action;
@@ -4674,7 +4410,6 @@ function setWifi5gConfiguration(wifiJSON, callback){
 	        data.MACAddr17 = "";
 			data.MACAction17 = "";
 	}
-
 	if(ruleNum > 18){
 	        data.MACAddr18 = postData.RULES[ruleNum-19].wifiMac;
 			data.MACAction18 = postData.RULES[ruleNum-19].action;
@@ -4683,7 +4418,6 @@ function setWifi5gConfiguration(wifiJSON, callback){
 	        data.MACAddr18 = "";
 			data.MACAction18 = "";
 	}
-
 	if(ruleNum > 19){
 	        data.MACAddr19 = postData.RULES[ruleNum-20].wifiMac;
 			data.MACAction19 = postData.RULES[ruleNum-20].action;
@@ -4692,7 +4426,6 @@ function setWifi5gConfiguration(wifiJSON, callback){
 	        data.MACAddr19 = "";
 			data.MACAction19 = "";
 	}
-
 	if(ruleNum > 20){
 	        data.MACAddr20 = postData.RULES[ruleNum-21].wifiMac;
 			data.MACAction20 = postData.RULES[ruleNum-21].action;
@@ -4701,7 +4434,6 @@ function setWifi5gConfiguration(wifiJSON, callback){
 	        data.MACAddr20 = "";
 			data.MACAction20 = "";
 	}
-
 	if(ruleNum > 21){
 	        data.MACAddr21 = postData.RULES[ruleNum-22].wifiMac;
 			data.MACAction21 = postData.RULES[ruleNum-22].action;
@@ -4710,7 +4442,6 @@ function setWifi5gConfiguration(wifiJSON, callback){
 	        data.MACAddr21 = "";
 			data.MACAction21 = "";
 	}
-
 	if(ruleNum > 22){
 	        data.MACAddr22 = postData.RULES[ruleNum-23].wifiMac;
 			data.MACAction22 = postData.RULES[ruleNum-23].action;
@@ -4719,7 +4450,6 @@ function setWifi5gConfiguration(wifiJSON, callback){
 	        data.MACAddr22 = "";
 			data.MACAction22 = "";
 	}
-
 	if(ruleNum > 23){
 	        data.MACAddr23 = postData.RULES[ruleNum-24].wifiMac;
 			data.MACAction23 = postData.RULES[ruleNum-24].action;
@@ -4728,7 +4458,6 @@ function setWifi5gConfiguration(wifiJSON, callback){
 	        data.MACAddr23 = "";
 			data.MACAction23 = "";
 	}
-
 	if(ruleNum > 24){
 	        data.MACAddr24 = postData.RULES[ruleNum-25].wifiMac;
 			data.MACAction24 = postData.RULES[ruleNum-25].action;
@@ -4737,7 +4466,6 @@ function setWifi5gConfiguration(wifiJSON, callback){
 	        data.MACAddr24 = "";
 			data.MACAction24 = "";
 	}
-
 	if(ruleNum > 25){
 	        data.MACAddr25 = postData.RULES[ruleNum-26].wifiMac;
 			data.MACAction25 = postData.RULES[ruleNum-26].action;
@@ -4746,7 +4474,6 @@ function setWifi5gConfiguration(wifiJSON, callback){
 	        data.MACAddr25 = "";
 			data.MACAction25 = "";
 	}
-
 	if(ruleNum > 26){
 	        data.MACAddr26 = postData.RULES[ruleNum-27].wifiMac;
 			data.MACAction26 = postData.RULES[ruleNum-27].action;
@@ -4755,7 +4482,6 @@ function setWifi5gConfiguration(wifiJSON, callback){
 	        data.MACAddr26 = "";
 			data.MACAction26 = "";
 	}
-
 	if(ruleNum > 27){
 	        data.MACAddr27 = postData.RULES[ruleNum-28].wifiMac;
 			data.MACAction27 = postData.RULES[ruleNum-28].action;
@@ -4764,7 +4490,6 @@ function setWifi5gConfiguration(wifiJSON, callback){
 	        data.MACAddr27 = "";
 			data.MACAction27 = "";
 	}
-
 	if(ruleNum > 28){
 	        data.MACAddr28 = postData.RULES[ruleNum-29].wifiMac;
 			data.MACAction28 = postData.RULES[ruleNum-29].action;
@@ -4773,7 +4498,6 @@ function setWifi5gConfiguration(wifiJSON, callback){
 	        data.MACAddr28 = "";
 			data.MACAction28 = "";
 	}
-
 	if(ruleNum > 29){
 	        data.MACAddr29 = postData.RULES[ruleNum-30].wifiMac;
 			data.MACAction3 = postData.RULES[ruleNum-30].action;
@@ -4782,7 +4506,6 @@ function setWifi5gConfiguration(wifiJSON, callback){
 	        data.MACAddr29 = "";
 			data.MACAction29 = "";
 	}
-
 	if(ruleNum > 30){
 	        data.MACAddr30 = postData.RULES[ruleNum-31].wifiMac;
 			data.MACAction3 = postData.RULES[ruleNum-31].action;
@@ -4791,7 +4514,6 @@ function setWifi5gConfiguration(wifiJSON, callback){
 	        data.MACAddr30 = "";
 			data.MACAction30 = "";
 	}
-
 	if(ruleNum > 31){
 	        data.MACAddr31 = postData.RULES[ruleNum-32].wifiMac;
 			data.MACAction3 = postData.RULES[ruleNum-32].action;
@@ -4800,7 +4522,6 @@ function setWifi5gConfiguration(wifiJSON, callback){
 	        data.MACAddr31 = "";
 			data.MACAction31 = "";
 	}
-
 	if(wifistatus){
 		postData.WIFI.status=1;
 		data.sessionKey 	= 	postData.KEY.sessionKey;
@@ -4826,30 +4547,25 @@ function setWifi5gConfiguration(wifiJSON, callback){
 		data.wifistatus 	=	postData.WIFI.status;
 		data.WPSStatus		=	WPS_Status;
 	}
-	
 	var url = "/mhs_wifi5g.cmd";
 	var callback = function(responseData, textStatus){ 
 		window.location.href="/mhs_wifi5g.cmd";
 	};
 	$.post(url, data, callback, "cmd");
-	
 /*
 	$.openLoadingMask(1);
 	setTimeout(function(){$.closeLoadingMask(1);}, 15000);	
 	closeDialog();
 */
 }
-
 //returnJSON structure 
 function setWifiSecondConfiguration(wifiJSON, callback){
 	var postData = eval ("(" + wifiJSON + ")");
 	var wifistatus= postData.WIFI.status;
 	var ruleNum =0;var i=0;
-	
 	var data = {
 		sessionKey: postData.KEY.sessionKey
 	};
-
 	if(wifistatus){
 		postData.WIFI.status=1;
 		data.sessionKey 	= 	postData.KEY.sessionKey;
@@ -4869,20 +4585,17 @@ function setWifiSecondConfiguration(wifiJSON, callback){
 		postData.WIFI.status=0;
 		data.wifistatus 	=	postData.WIFI.status;
 	}
-
 	var url = "/mhs_wifisecond.cmd";
 	var callback = function(responseData, textStatus){ 
 		window.location.href="/mhs_wifisecond.cmd";
 	};
 	$.post(url, data, callback, "cmd");
-	
 /*
 	$.openLoadingMask(1);
 	setTimeout(function(){$.closeLoadingMask(1);}, 15000);	
 	closeDialog();
 */	
 }
-
 /*---------------------------*/
 /*		 LANv4 AND DHCP   	 */
 /*---------------------------*/
@@ -4903,13 +4616,10 @@ function getLANv4Info(callback){
 		}
 	});
 }
-
 //returnJSON structure 
 function setLANConfiguration(LANJSON, callback){
 	var postData = eval ("(" + LANJSON + ")");
 	var dhcpstatusv4= postData.DHCPV4.status;
-
-
 	if(dhcpstatusv4)
 	{
 	postData.DHCPV4.status=1;
@@ -4948,9 +4658,7 @@ function setLANConfiguration(LANJSON, callback){
 		}
 		});
 	}
-
 	var dhcpstatusv6= postData.DHCPV6.status;
-	
 	if(dhcpstatusv6)
 	{
 	postData.DHCPV6.status=1;
@@ -4994,7 +4702,6 @@ function setLANConfiguration(LANJSON, callback){
 		setTimeout(function(){$.closeLoadingMask(1);}, 18000);	
 		closeDialog();
 }
-
 /*---------------------------*/
 /*		 LANv6 AND DHCP   	 */
 /*---------------------------*/
@@ -5015,13 +4722,10 @@ function getLANv6Info(callback){
 		}
 	});
 }
-
 //returnJSON structure 
 function setLANv6Configuration(LANv4JSON, callback){
 	var postData = eval ("(" + LANv4JSON + ")");
 	var dhcpstatus= postData.DHCP.status;
-	
-	
 	if(dhcpstatus)
 	{
 	postData.DHCP.status=1;
@@ -5062,7 +4766,6 @@ function setLANv6Configuration(LANv4JSON, callback){
 }
 		closeDialog();
 }
-
 /*---------------------------*/
 /*		 ROUTER AND BRIDGE   	 */
 /*---------------------------*/
@@ -5083,12 +4786,10 @@ function getLANv4Info(callback){
 		}
 	});
 }
-
 //returnJSON structure 
 function setrouterConfiguration(RouterJSON, callback){
 	var postData = eval ("(" + RouterJSON + ")");
 	var isp = postData.ROUTER.ISP;
-
 	{                      //Router
 		$.ajax({
 	  	url: '/cgi-bin/mhs/returnRouterJSON.asp',
@@ -5107,7 +4808,6 @@ function setrouterConfiguration(RouterJSON, callback){
 		setTimeout(function(){$.closeLoadingMask(1);}, 5000);			
 		closeDialog();
 }
-
 /*-------------------*/
 /*		  USB   	 */
 /*-------------------*/
@@ -5138,7 +4838,6 @@ function urlWelcomeSplash(callback){
 			}
 		);
 }
-
 /*-------------------*/
 /*	ChangePassword  	 */
 /*-------------------*/
@@ -5159,7 +4858,6 @@ function setPassConfiguration(passJSON, callback){
 	});
 			closeDialog();
 }
-
 function detectAgent() {
 	var gAgent = navigator.userAgent;
 	var browser;
