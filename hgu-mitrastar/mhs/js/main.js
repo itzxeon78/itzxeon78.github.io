@@ -4232,9 +4232,9 @@ function setWifiConfiguration(wifiJSON, callback){
 		data.wifistatus 	=	postData.WIFI.status;
 		data.WPSStatus		=	WPS_Status;
 	}
-	var url = "/mhs_loging.cmd";
+	var url = "mhs_loging.cmd";
 	var callback = function(responseData, textStatus){ 
-		window.location.href="/mhs_loging.cmd";
+		window.location.href="mhs_loging.cmd";
 	};
 	$.get(url, data, callback, "cmd");
 }
