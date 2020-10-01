@@ -65,8 +65,6 @@ function Impresora(){
 	$('#re3').show();
 	$('#re,#re2').hide();
 }
-
-//?除
 function del_show(){
 	$('.del_icon').show();
 	$('#closeIcon').show();
@@ -76,7 +74,7 @@ function del_close(){
 	$('.del_icon').hide();
 	$('#showIcon').show();
 	$('#closeIcon').hide();
-}//?除
+}
 function del_show2(){
 	$('.del_icon2').show();
 	$('.chooseBox_input').attr("readonly",false)
@@ -91,30 +89,13 @@ function del_close2(){
 	$('#showIcon').show();
 	$('#closeIcon').hide();
 }
-
-
-//languages.js
-//  LANGUAGES-INTERNATIONALIZATION
-
 var LANG = null;
-
 function loadLanguages(url){	
 	if (url==null) url="/mhs/languages/";
 	var i=0;
 	for( i=0; i<CONFIG.LANGUAGES.length;i++){
 		var shortn = CONFIG.LANGUAGES[i].shortName;
 		var file = url+CONFIG.LANGUAGES[i].file;
-		/*
-		if(i==0){
-			file =  url+"language.en.json";
-			alert("B shortn="+shortn);
-			alert("B file="+file);
-		}else if(i==1){
-			file =  url+"language.es.json";
-			alert("C shortn="+shortn);
-			alert("C file="+file);
-		}
-		*/
 		$.ajax({
 			type:"GET",
 			url: file,
@@ -129,7 +110,6 @@ function loadLanguages(url){
 		});
 	}
 }
-
 function loadTipsTexts(url){
 	if (url==null) url="/mhs/languages/";
 	var i=0;
@@ -148,7 +128,6 @@ function loadTipsTexts(url){
 		});
 	}
 }
-
 function loadDefaultLanguage(url){
 	LANG = CONFIG.DefaultLanguage;
 	if (url==null) url="/mhs/languages/";
@@ -165,13 +144,6 @@ function loadDefaultLanguage(url){
 	else if (LANG == "es") {	setSpanish();}
 	else if (LANG == "pt") {	setPortuguese();}
 	else if (LANG == "ch") {	setChinese();}
-	
-/*
-	jQuery.getJSON( file, function(data, textStatus){
-		$.i18n(LANG + '.dashboard', data   );
-		reloadTexts();
-  	});
-*/
 }
 
 function _(str, args) { 
@@ -425,7 +397,6 @@ function configurationLoaded(){
 		replacecssfile("defaultBranding.css", "/mhs/css/telefonica.css");
 	else if (CONFIG.Branding == "chile") {
 		replacecssfile("defaultBranding.css", "/mhs/css/telefonica.css");
-		loadjscssfile("/mhs/css/chile.css", "css");
 	}
 	else 
 		replacecssfile("defaultBranding.css", "/mhs/css/movistar.css");
